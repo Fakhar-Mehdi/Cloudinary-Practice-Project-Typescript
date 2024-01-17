@@ -1,13 +1,17 @@
-import { NextFunction, Request, Response } from "express";
+import { Request, Response, NextFunction } from "express";
+import { SERVER_ERROR } from "utils/constants/errors";
 
-const asyncHandler = (handler: any) => {
-  return async (req: Request, res: Response, next: NextFunction) => {
+const asyncHandler =
+  (callback: any) =>
+  async (req: Request, res: Response, next: NextFunction) => {
     try {
-      await handler(req, res);
-    } catch (error) {
-      next(error);
+      await callback(req, res, next);
+    } catch (error: any) {
+      console.log(error.message);
+      res.status(error.statusCode || SERVER_ERROR.code).json({
+        code: error.statusCode || SERVER_ERROR.code,
+        message: error.message || SERVER_ERROR.message,
+      });
     }
   };
-};
-
 export default asyncHandler;

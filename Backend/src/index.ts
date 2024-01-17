@@ -2,10 +2,9 @@ import express from "express";
 import multer from "multer";
 import signupRouter from "api/routes/signup";
 import { cors } from "utils/middleware/cors";
-import error from "utils/middleware/error";
 import { configureCloudinary } from "frameworks/cloudinary/helper";
-import { connectAndListen } from "services/database/helper";
 import * as dotenv from "dotenv";
+import { connectAndListen } from "database";
 
 dotenv.config();
 const app = express();
@@ -18,6 +17,5 @@ app.use(upload.any());
 app.use(cors);
 
 app.use("/", signupRouter);
-app.use(error);
 
 connectAndListen(app);

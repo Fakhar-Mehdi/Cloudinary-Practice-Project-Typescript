@@ -1,12 +1,6 @@
 import React, { useState, ChangeEvent, useRef } from "react";
-import { getBody, getResponse, resetForm } from "../helper";
-
-interface SignUpFormState {
-  name: string;
-  email: string;
-  age: string;
-  profilePicture: any;
-}
+import { getBody, getResponse, resetForm } from "../utils/helper";
+import { SignUpFormState } from "../utils/types/signUpFormTypes";
 
 const SignUpForm: React.FC = () => {
   const [formData, setFormData] = useState<SignUpFormState>({

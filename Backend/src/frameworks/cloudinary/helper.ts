@@ -1,5 +1,4 @@
 import { v2 as cloudinary } from "cloudinary";
-import Joi from "joi";
 
 export const uploadFileToCloudinary = async (file: any) =>
   new Promise((resolve, reject) => {
@@ -25,14 +24,4 @@ export const configureCloudinary = () => {
     api_secret: "tPmBm8R34bNmFK7ZH8aZ5VUBqP8",
     signature_algorithm: "sha256",
   });
-};
-
-export const validateUserInfo = (user: any) => {
-  const userSchema = Joi.object({
-    name: Joi.string().min(1).required(),
-    email: Joi.string().email(),
-    age: Joi.number().min(1),
-    profilePicture: Joi.required(),
-  });
-  userSchema.validate(user);
 };
