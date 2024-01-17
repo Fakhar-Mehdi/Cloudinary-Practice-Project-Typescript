@@ -16,7 +16,7 @@ export const getResponse = async (res: any, event: any) => {
     message:
       res.status === 200
         ? `Thanks ${event.target?.name.value} for signing up`
-        : `ERROR: ${await res.text()}`,
+        : `${await res.text()}`,
   };
 };
 

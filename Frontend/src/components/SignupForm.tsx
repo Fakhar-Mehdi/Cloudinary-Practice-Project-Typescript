@@ -37,7 +37,8 @@ const SignUpForm: React.FC = () => {
       method: "POST",
       body,
     });
-    setResponse(await getResponse(res, event));
+    const responseData = await getResponse(res, event);
+    setResponse(responseData);
     resetForm(res, setFormData, fileInputRef);
   };
 
