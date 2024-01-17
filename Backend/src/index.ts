@@ -5,7 +5,9 @@ import { cors } from "utils/middleware/cors";
 import error from "utils/middleware/error";
 import { configureCloudinary } from "frameworks/cloudinary/helper";
 import { connectAndListen } from "services/database/helper";
+import * as dotenv from "dotenv";
 
+dotenv.config();
 const app = express();
 const storage = multer.memoryStorage();
 const upload = multer({ storage });

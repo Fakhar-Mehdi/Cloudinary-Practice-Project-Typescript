@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 export const connectAndListen = (app: any) => {
-  const port = 3001;
+  const port = process.env.PORT || 0;
   mongoose
     .connect("mongodb://127.0.0.1:27017/img-upload")
     .then(() => {
