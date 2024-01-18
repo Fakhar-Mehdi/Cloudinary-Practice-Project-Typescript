@@ -1,0 +1,8 @@
+.signup-form {
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  display: flex;
+  gap: 30px 50px;
+  flex-direction: column;
+}
